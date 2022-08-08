@@ -16,6 +16,12 @@ class BancoDados:
     def __dump(self):
         pickle.dump(self.__cache, open(self.__nome_arquivo, 'wb'))
 
-    def add(self, key, obj):
-        self.__cache[key] = obj
+    def add(self, key, numero):
+        self.__cache[key] = numero
         self.__dump()
+
+    def get(self, key):
+        try:
+            return self.__cache[key]
+        except KeyError:
+            return None
