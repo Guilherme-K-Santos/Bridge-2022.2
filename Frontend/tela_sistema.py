@@ -64,7 +64,7 @@ class TelaSistema:
             self.close()
             return numero_certo
         else:
-            exit()
+            return None
 
     def tela_inicial(self):
         Interface.change_look_and_feel('DarkBrown2')
