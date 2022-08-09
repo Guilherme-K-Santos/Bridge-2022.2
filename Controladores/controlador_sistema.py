@@ -1,15 +1,14 @@
 import math
+import time
 
+from Backend.DAO_numeros import DAONumeros
 from Frontend.tela_sistema import TelaSistema
-
-
-# from Backend.DAO import BancoDados
 
 
 class ControladorSistema:
     def __init__(self):
         self.__tela_sistema = TelaSistema()
-        # self.__banco_de_dados = BancoDados()
+        self.__daonumeros = DAONumeros()
 
     def iniciar(self):
         opcao = self.__tela_sistema.abrir_tela_inicial()
@@ -22,16 +21,17 @@ class ControladorSistema:
 
     def calculo(self):
         numero = self.__tela_sistema.abrir_tela_calculo()
+
         if numero is None:
             self.iniciar()
 
+        comeco_tempo = time.time()
+
         dividendo = numero
         resultado_final = 0
-
-    #   ---------------------------------------- cálculo de divisibilidade -----------------------------------
         num_divisores_n1 = -math.inf
 
-        while dividendo != 1:
+        while dividendo > 1:
 
             divisor = 2
             if dividendo % 2 == 0:
@@ -71,9 +71,23 @@ class ControladorSistema:
 
             num_divisores_n1 = num_divisores_n
 
-        self.__tela_sistema.popup('Resultado: {}'.format(resultado_final))
+        fim_tempo = time.time()
+
+        self.__daonumeros.add(numero, resultado_final)
+        self.__tela_sistema.abrir_resultado_final(numero, resultado_final, (fim_tempo - comeco_tempo))
 
         self.iniciar()
 
     def historico(self):
-        pass
+        guarda = []
+        numero, resultado = self.__daonumeros.get_all()
+
+        contador = 0
+        for num in numero:
+            guarda.append({num: resultado[contador]})
+            contador += 1
+
+        resposta_tela = self.__tela_sistema.abrir_historico(guarda)
+
+        if resposta_tela is None or True:
+            self.iniciar()

@@ -9,6 +9,10 @@ def excecao_apenas_numeros(numero_suposto):
         return None
 
 
+def popup(mensagem: ''):
+    Interface.Popup(mensagem)
+
+
 class TelaSistema:
     def __init__(self):
         self.__window = None
@@ -16,11 +20,8 @@ class TelaSistema:
     def close(self):
         self.__window.Close()
 
-    def popup(self, mensagem: ''):
-        Interface.Popup(mensagem)
-
     def tela_calculo(self):
-        Interface.change_look_and_feel('DarkBrown4')
+        Interface.change_look_and_feel('DarkBrown2')
         layout = [
             [Interface.Text('Olá avaliadores!')],
             [Interface.Text('Por favor, adicionem o valor para o cálculo:')],
@@ -50,7 +51,7 @@ class TelaSistema:
 
             while numero_certo is None:
                 self.close()
-                self.popup('Por favor, coloque um valor númerico!')
+                popup('Por favor, coloque um valor númerico!')
 
                 self.tela_correcao()
                 botao, valor = self.__window.Read()
@@ -88,9 +89,46 @@ class TelaSistema:
             elif alternativas[2]:
                 opcao = 2
             else:
-                self.popup('Selecione uma opção válida!')
+                popup('Selecione uma opção válida!')
         else:
             exit()
 
         self.close()
         return opcao
+
+    def resultado_final(self, numero: int, resultado: int, tempo):
+        Interface.change_look_and_feel('DarkBrown2')
+        layout = [
+            [Interface.Text('O número {}'.format(numero) + ' tem {}'.format(resultado) + ' "tuplas" '
+                                                                                         'com divisores iguais')],
+            [Interface.Text('O tempo de execução do algoritmo foi de {}'.format(tempo) + ' segundos')],
+            [Interface.Button('Confirmar')]
+            ]
+
+        self.__window = Interface.Window('Resultados').Layout(layout)
+
+    def abrir_resultado_final(self, numero: int, resultado: int, tempo):
+        self.resultado_final(numero, resultado, tempo)
+
+        botao = self.__window.Read()
+
+        if botao:
+            self.close()
+
+    def historico(self, lista_valores):
+        Interface.change_look_and_feel('DarkBrown2')
+        layout = [
+            [Interface.Text('A relação entre Número e Resultado é: ')],
+            [Interface.Listbox(values=lista_valores, size=(30, 3), key='historico')],
+            [Interface.Button('Ok')]
+        ]
+
+        self.__window = Interface.Window('Histórico').Layout(layout)
+
+    def abrir_historico(self, lista_valores):
+        self.historico(lista_valores)
+
+        botao = self.__window.Read()
+
+        self.close()
+        return botao
