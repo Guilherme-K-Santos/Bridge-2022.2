@@ -51,7 +51,7 @@ Para os números restantes, segue as regras:
 - 9 é divisivel por 3.
 
 - Qualquer outro número que não é dividido por esses algarismos primários (exceção do 1), são
-  números primos. Portatno só têm dois divisores distintos: 1 e ele mesmo.
+  números primos. Portanto só têm dois divisores distintos: 1 e ele mesmo.
 
 Após terminar o cálculo de cada número, eu comparo o resultado anterior ao atual, com as váriaveis
 "num_divisores_n1 == num_divisores_n". Caso eles sejam iguais, o "resultado_final" é acrescido em 1.
@@ -59,9 +59,10 @@ Após terminar o cálculo de cada número, eu comparo o resultado anterior ao at
 OBS: na primeira tentativa "num_divisores_n1" é igual a -math.inf, pois ainda não foi calculado
 mais de dois números para a comparação.
 
-Quando o algoritmo finalmente acaba, a contagem de tempo para e as váriaveis número, resultado e
-tempo são enviadas para as telas e "printadas" para o usuário através de uma interface gráfica
-customizavel.
+Quando o algoritmo finalmente acaba, a contagem de tempo termina e as váriaveis: número, resultado e
+tempo são enviadas para a tela sistema e "printadas" para o usuário através de uma interface gráfica
+customizavel. Ao mesmo tempo, as informações são passadas para o banco de dados e armazenadas, podendo
+ser vistas novamente na tela histórico, acessada através do menu principal.
 
 Para fazer o programa funcionar, basta dar run no arquivo "main.py". Isso inicializará o sis-
 tema.
