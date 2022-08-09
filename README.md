@@ -12,8 +12,8 @@ mesma função tanto no frontend com o backend. Espero que gostem :D
 Para realizar o frontend, eu usei a biblioteca "PySimpleGUI", que cria interfaces gráficas
 costumizáveis. No sistema existem 3 telas principais: a tela inicial (pode levar o usuário
 para a tela de cálculo ou para a screen de histórico), a tela cálculo (onde o algoritmo
-realiza o desafio em si) e a tela de histórico (armazena os números calculados e seus respec
-tivos resultados). 
+realiza o desafio em si) e a tela de histórico (armazena os números calculados e seus respectivos
+resultados). 
 
 Já no backend, utilizei a biblioteca "pickle", que se comporta como um banco de dados bem
 básico. Eu usei dois DAO (Data Access Object): um abstrato (falando as funções gerais do
