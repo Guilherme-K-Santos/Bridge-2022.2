@@ -4,10 +4,10 @@ Código-fonte da segunda etapa do processo seletivo do Bridge.
 Olá, chamo-me Guilherme Santos e atualmente estou no terceiro semestre de SIN.
 Nesse arquivo vou explicar e analisar um pouco sobre o meu código para o desafio.
 
-Para começo, vou explicar um pouco sobre o código. Eu implementei o desafio usando
-totalmente Python, como disse na fase 1, eu ainda não estudei sobre react, js, css e MySql
-explicitamente. Portanto, eu usei tecnologias e bibliotecas em python para "imitar"/fazer a
-mesma função tanto no frontend com o backend. Espero que gostem :D
+Para começo, vou explicar um pouco sobre o código. Eu implementei o desafio usando totalmente Python,
+como disse na fase 1, eu ainda não estudei sobre react, js, css e MySql explicitamente. Portanto,
+eu usei tecnologias e bibliotecas em python para simular a mesma função tanto no frontend com o backend. 
+Espero que gostem.
 
 Para realizar o frontend, eu usei a biblioteca "PySimpleGUI", que cria interfaces gráficas
 costumizáveis. No sistema existem 3 telas principais: a tela inicial (pode levar o usuário
@@ -15,13 +15,12 @@ para a tela de cálculo ou para a screen de histórico), a tela cálculo (onde o
 realiza o desafio em si) e a tela de histórico (armazena os números calculados e seus respectivos
 resultados). 
 
-Já no backend, utilizei a biblioteca "pickle", que se comporta como um banco de dados bem
-básico. Eu usei dois DAO (Data Access Object): um abstrato (falando as funções gerais do
-banco de dados improvisado) e o focado em guardar/armazenar os números e resultados.
-Para armazená-los eu usei dicionários, onde a chve é o próprio número, e o "objeto" guardado
-é o resultado. O processamento do algoritmo se dá no controlador sistema, que conversa com o
-banco de dados e com as telas, ou seja, não há conexão direta entre os dois. Todos os cálculos
-são efetuados no backend.
+Já no backend, utilizei a biblioteca "pickle", que se comporta como um banco de dados bem básico.
+Eu usei dois DAO (Data Access Object): um abstrato (falando as funções gerais do banco de dados improvisado)
+e o focado em guardar/armazenar os números e resultados. Para armazená-los eu usei dicionários, onde a chave
+é o número digitado pelo usuário e o "objeto" guardado é o resultado. O processamento do algoritmo se dá no
+controlador sistema, que conversa com o banco de dados e com as telas, ou seja, não há conexão direta entre os dois.
+Todos os cálculos são efetuados no backend.
 
 Nesse parágrafo vou explicar um pouco da minha ideia de como implementar o algoritmo.
 Primeiramente, o usuário coloca o número que deseja calcular na "tela cálculo", ela manda
